@@ -1,3 +1,13 @@
+<?php
+session_start();
+ini_set('zlib.output_compression','On');
+ini_set('zlib.output_compression_level','6');
+header('Content-Type:text/html;charset=utf-8');
+require_once("fs/fsphp.php");
+$vengoip = getIP();
+if (isset($_SESSION["iduser"]))
+{
+?>
 <!doctype html>
 <html>
 <head>
@@ -199,3 +209,12 @@
 <a class="button button-pill button-action" href="#" onclick="enviaroc();" tabindex="3"><span><i class="icon-save icon-2x"></i> Guardar</span></a>
 </body>
 </html>
+<?php
+}else{
+  echo "<script type='text/javascript'>
+  alert('¡Sesión Inválida! , Por favor ingrese nuevamente.');
+  window.location='index.php';
+  </script>";
+
+}
+?>
