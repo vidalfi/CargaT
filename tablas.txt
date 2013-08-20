@@ -1,0 +1,29 @@
+tablas carga
+
+****
+CREATE  TABLE `carga`.`user` (
+  `iduser` INT NOT NULL ,
+  `nombre` VARCHAR(100) NULL ,
+  `apellido` VARCHAR(100) NULL ,
+  `cc` BIGINT NULL ,
+  `mail` VARCHAR(45) NULL ,
+  `nivel` INT NULL ,
+  `user` VARCHAR(45) NULL ,
+  `pws` VARCHAR(250) NULL ,
+  PRIMARY KEY (`iduser`) );
+
+****
+CREATE  TABLE `carga`.`nivel` (
+  `idnivel` INT NOT NULL AUTO_INCREMENT ,
+  `nivel` INT NULL ,
+  `iduser` VARCHAR(45) NOT NULL ,
+  PRIMARY KEY (`idnivel`) ,
+  INDEX `index` (`iduser` ASC) );
+
+** crear relacion ***
+ALTER TABLE `carga`.`nivel` 
+  ADD CONSTRAINT `fka`
+  FOREIGN KEY (`iduser` )
+  REFERENCES `carga`.`user` (`iduser` )
+  ON DELETE CASCADE
+  ON UPDATE CASCADE;

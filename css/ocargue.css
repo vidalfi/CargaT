@@ -1,0 +1,10 @@
+@charset "utf-8";
+#tfecha{
+	display: block;
+	position: absolute;
+	width: 215px;
+	left: 465px;
+	top: 6px;
+	font: Helvetica, Arial;
+	color: #222;
+	}
